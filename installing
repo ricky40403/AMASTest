@@ -1,0 +1,42 @@
+#!/bin/bash
+
+RESULT="$(conda list)"
+
+if [[ -z "$RESULT" ]];
+then
+    echo install anaconda
+    curl -Ok https://repo.continuum.io/archive/Anaconda3-5.1.0-MacOSX-x86_64.pkg
+    sudo installer -pkg Anaconda3-5.1.0-MacOSX-x86_64.pkg -target /
+else
+    echo "# anaconda has install"
+fi
+
+
+RESULT="$(conda list)"
+
+if [[ -z "$RESULT" ]];
+then
+    echo "# install fail";
+    echo "# please install by click the pkg file";
+    exit 1
+else
+    echo "anaconda has install";
+fi
+
+echo "# create virtual env named tensor_keras with python 3.4";
+conda create --name tensor_keras python=3.4
+
+echo "# tensor_keras create";
+echo "# enter tensor_keras";
+
+source activate tensor_keras
+
+echo "# install tensorflow";
+
+pip install tensorflow
+
+echo "# install keras";
+
+pip install keras
+
+jupyter notebook 
