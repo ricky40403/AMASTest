@@ -39,4 +39,20 @@ echo "# install keras";
 
 pip install keras
 
+echo "# install jupyter notebook in virtual env";
+
+conda install jupyter
+
+echo "# install opencv";
+
+pip install opencv-python
+
+echo "# install matplotlob";
+
+pip install matplotlob
+
+echo "# install h5py";
+
+pip install h5py
+
 jupyter notebook 
