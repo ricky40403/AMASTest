@@ -39,4 +39,8 @@ echo "# install keras";
 
 pip install keras
 
+echo "# install jupyter notebook in virtual env";
+
+conda install jupyter
+
 jupyter notebook 
